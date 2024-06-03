@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
-        "Neiland"
+        "env",
+        "Neiland",
+        "venv"
     ],
     "files.exclude": {
         "": true
