@@ -1,5 +1,12 @@
 {
     "cSpell.words": [
         "Neiland"
-    ]
+    ],
+    "files.exclude": {
+        "": true
+    },
+    "search.exclude": {
+        "": true
+    },
+    "search.useGlobalIgnoreFiles": true
 }
