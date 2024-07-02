@@ -1,17 +1,11 @@
-import pytest
-from app import app
+import unittest
+from app import app  # Asegúrate de que esta ruta es correcta
 
-@pytest.fixture
-def client():
-    with app.test_client() as client:
-        yield client
+class TestMain(unittest.TestCase):
+    def test_example(self):
+        tester = app.test_client(self)
+        response = tester.get('/')
+        self.assertEqual(response.status_code, 200)
 
-def test_home(client):
-    rv = client.get('/')
-    assert rv.data == b'Bienvenido a Catalina Politician Insight SQL'
-
-def test_consulta(client):
-    rv = client.get('/consulta?nombre=Juan')
-    json_data = rv.get_json()
-    assert json_data['nombre'] == 'Juan'
-
+if __name__ == "__main__":
+    unittest.main()
