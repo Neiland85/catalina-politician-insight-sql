@@ -46,8 +46,8 @@ PS C:\> Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 For more information on Execution Policies: 
 https://go.microsoft.com/fwlink/?LinkID=135170
-
 #>
+
 Param(
     [Parameter(Mandatory = $false)]
     [String]
@@ -68,7 +68,6 @@ the PATH variable.
 .Parameter NonDestructive
 If present, do not remove this function from the global namespace for the
 session.
-
 #>
 function global:deactivate ([switch]$NonDestructive) {
     # Revert to original values
@@ -162,7 +161,6 @@ function Get-PyVenvConfig(
     }
     return $pyvenvConfig
 }
-
 
 <# Begin Activate script --------------------------------------------------- #>
 
