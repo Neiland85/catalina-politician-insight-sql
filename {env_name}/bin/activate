@@ -3,16 +3,46 @@
 
 # Function to deactivate the virtual environment
 deactivate () {
-    ...
+    # Reset old environment variables
+    if [ -n "$_OLD_VIRTUAL_PATH" ]; then
+        PATH="$_OLD_VIRTUAL_PATH"
+        export PATH
+        unset _OLD_VIRTUAL_PATH
+    fi
+    if [ -n "$_OLD_VIRTUAL_PYTHONHOME" ]; then
+        PYTHONHOME="$_OLD_VIRTUAL_PYTHONHOME"
+        export PYTHONHOME
+        unset _OLD_VIRTUAL_PYTHONHOME
+    fi
+
+    unset VIRTUAL_ENV
+    if [ ! "$1" = "nondestructive" ]; then
+        # Self-destruct!
+        unset -f deactivate
+    fi
 }
 
-# Check if virtual environment is already active
-if [ -n "$VIRTUAL_ENV" ]; then
-    echo "Virtual environment already active"
-else
-    # Activate the virtual environment
-    VIRTUAL_ENV="/path/to/virtualenv"
-    export VIRTUAL_ENV
-    export PATH="$VIRTUAL_ENV/bin:$PATH"
-    echo "Virtual environment activated"
+# Unset irrelevant variables before activating new environment
+deactivate nondestructive
+
+# Set the virtual environment path
+VIRTUAL_ENV="/Users/estudio/Projects/GitHub/Python/catalina-politician-insight-sql/catalina-politician-insight-sql/{env_name}"
+export VIRTUAL_ENV
+
+# Save the current PATH and update it to include the virtual environment bin directory
+_OLD_VIRTUAL_PATH="$PATH"
+PATH="$VIRTUAL_ENV/bin:$PATH"
+export PATH
+
+# Unset PYTHONHOME if it is set
+if [ -n "$PYTHONHOME" ]; then
+    _OLD_VIRTUAL_PYTHONHOME="$PYTHONHOME"
+    unset PYTHONHOME
+fi
+
+# If the prompt is not disabled, override the shell prompt to include the virtual environment name
+if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT-}" ]; then
+    _OLD_PS1="$PS1"
+    PS1="(${env_name}) $PS1"
+    export PS1
 fi
