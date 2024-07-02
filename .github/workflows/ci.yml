@@ -1,4 +1,4 @@
-kname: CI
+name: CI
 
 on: [push, pull_request]
 
@@ -19,6 +19,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest
+        pip install -r requirements.txt  # Asegúrate de tener un archivo requirements.txt con tus dependencias
 
     - name: Run tests
       run: |
