@@ -1,8 +1,16 @@
 #!/Users/estudio/Projects/GitHub/Python/catalina-politician-insight-sql/catalina-politician-insight-sql/{env_name}/bin/python3.12
 # -*- coding: utf-8 -*-
+"""
+This script serves as an entry point to run the pip package manager using Python 3.12 within the specified virtual environment.
+"""
+
 import re
 import sys
 from pip._internal.cli.main import main
+
 if __name__ == '__main__':
+    # Modify sys.argv[0] to remove any script or executable suffix if present.
     sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
+    
+    # Execute the main function from pip's internal CLI module.
     sys.exit(main())
