@@ -17,6 +17,40 @@ def consulta():
     Ruta para consultar información de un político.
     Parámetros:
         nombre (str): Nombre del político a consultar.
+    """
+    nombre = request.args.get('nombre')
+    if not nombre:
+        return jsonify({"error": "El parámetro 'nombre' es obligatorio."}), 400
+
+    # Simulación de la consulta
+    data = {
+        "nombre": nombre,
+        "partido": "Partido Ejemplo",
+        "cargos": ["Cargo 1", "Cargo 2"]
+    }
+    return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+from flask import Flask, request, jsonify
+import requests
+import pandas as pd
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    """
+    Ruta principal que devuelve un mensaje de bienvenida.
+    """
+    return "Bienvenido a Catalina Politician Insight SQL"
+
+@app.route('/consulta', methods=['GET'])
+def consulta():
+    """
+    Ruta para consultar información de un político.
+    Parámetros:
+        nombre (str): Nombre del político a consultar.
     Retorna:
         JSON: Información del político.
     """
