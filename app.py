@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+import requests
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -39,7 +41,8 @@ def obtener_informacion_politico(nombre):
         str: Información del político.
     """
     # Aquí iría la lógica real para obtener información del político
-    return "Información detallada del político"
+    # Ejemplo: llamando a una API externa o consultando una base de datos
+    return "Información detallada del político sobre {}".format(nombre)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)  # Configuración para producción
