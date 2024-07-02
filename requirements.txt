@@ -1,3 +1,4 @@
-flask
-requests
-pandas
+Flask==2.0.2
+requests==2.26.0
+pandas==1.3.3
+
